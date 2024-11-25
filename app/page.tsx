@@ -8,6 +8,7 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recha
 import getFuelGeneration, { DataType } from "./Elexon/api/getFuelInst";
 import fuelTypeMap from "./Elexon/mapping/fuelTypeMap";
 import getTextColorFromBackground from "./colourUtils";
+import Link from "next/link";
 
 const dataTypeAtom = atom<DataType>(DataType["Half-Hourly"]);
 
@@ -221,10 +222,11 @@ const Home = () => {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:py-5 sm:px-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start min-w-[80vw]">
+      <main className="flex flex-col gap-4 row-start-2 items-center sm:items-start min-w-[80vw]">
         <h1 className="text-3xl sm:text-4xl">Fuel Generation</h1>
+        <Link className="italic text-blue-600 underline" href="https://www.elexon.co.uk/data/balancing-mechanism-reporting-agent/copyright-licence-bmrs-data/">Contains BMRS data © Elexon Limited copyright and database right 2024</Link>
 
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-4 flex-col mb-4">
           <h2 className="text-xl">Data Type:</h2>
 
           <div className="flex gap-4">
@@ -243,7 +245,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-4 flex-col mb-4">
           <h2 className="text-xl">Time Period{availableTimePeriodsFromData ? (availableTimePeriodsFromData[0].start.getDate() !== new Date().getDate() ? ` (${format(availableTimePeriodsFromData[0].start, "dd/MM/yyyy")})` : "") : ""}:</h2>
 
           <div className="flex gap-4 flex-wrap max-h-60 overflow-y-auto">
