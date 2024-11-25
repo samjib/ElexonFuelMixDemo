@@ -267,7 +267,7 @@ const Home = () => {
 
         <h3>Total Generation: {totalGeneration.toLocaleString("en-GB", { style: "decimal" })} MWh</h3>
 
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" minHeight={600}>
           <PieChart>
             <Pie
               dataKey="generation"
